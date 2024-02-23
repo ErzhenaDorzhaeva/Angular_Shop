@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { IDish } from '../../types';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
@@ -11,7 +9,6 @@ import { IDish } from '../../types';
 })
 export class BasketComponent {
   public empty: boolean = true;
-  @Input() dishes: Array<IDish>;
 
   ngOnInit(): void {}
 }

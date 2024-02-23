@@ -1,1 +1,19 @@
-
+<img src="{{ product.image }}" alt="Image" class="product-card__image" />
+<h2>Product name: {{ product.title }}</h2>
+<h4>Description: {{ product.description }}</h4>
+<h4>Price: {{ product.price | currency : "RUB" }}</h4>
+<h4>Category: {{ product.category }}</h4>
+<h4>Rating:</h4>
+<h4>{{ product.rating.count }}</h4>
+<h4>{{ product.rating.rate }}</h4>
+<div>
+  <app-modal *ngIf="modalService.isVisible$ | async"
+    ><app-editing-product></app-editing-product
+  ></app-modal>
+  <button class="product-card__button" (click)="modalService.open()">
+    Editing
+  </button>
+</div>
+<div>
+  <button class="product-card__button" (click)="goToMenu()">Back</button>
+</div>

@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -7,14 +8,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
 })
-export class ModalComponent {
-  @ViewChild('myModal', { static: false }) modal: ElementRef;
+export class ModalComponent implements OnInit {
+  constructor(public modalService: ModalService) {}
 
-  open() {
-    this.modal.nativeElement.style.display = 'block';
-  }
-
-  close() {
-    this.modal.nativeElement.style.display = 'none';
-  }
+  ngOnInit(): void {}
 }

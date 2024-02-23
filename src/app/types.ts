@@ -1,10 +1,3 @@
-export class IDish {
-  id: number;
-  name: string;
-  image: any;
-  price: number;
-  composition: string;
-}
 export class IProduct {
   id?: number;
   title: string;
