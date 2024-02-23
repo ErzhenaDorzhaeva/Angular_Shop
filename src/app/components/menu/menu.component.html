@@ -7,9 +7,9 @@
       [(ngModel)]="emp"
     />
   </div>
-  <div *ngIf="products$ | async as products">
+  <div *ngIf="productsService.products">
     <div
-      *ngFor="let product of products | filterProducts : emp"
+      *ngFor="let product of productsService.products | filterProducts : emp"
       class="product-card"
     >
       <img

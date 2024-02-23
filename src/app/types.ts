@@ -6,7 +6,7 @@ export class IDish {
   composition: string;
 }
 export class IProduct {
-  id: number;
+  id?: number;
   title: string;
   price: number;
   description: string;

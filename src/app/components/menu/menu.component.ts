@@ -27,8 +27,8 @@ import { ModalComponent } from '../modal/modal.component';
 export class MenuComponent implements OnInit {
   products$: Observable<IProduct[]>;
   emp = '';
-  constructor(private productsService: ProductService) {}
+  constructor(public productsService: ProductService) {}
   ngOnInit(): void {
-    this.products$ = this.productsService.getAll();
+    this.productsService.getAll().subscribe((products) => {});
   }
 }
