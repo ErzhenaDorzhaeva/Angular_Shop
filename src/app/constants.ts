@@ -24,3 +24,5 @@ export const dishData: Array<IDish> = [
     composition: 'макароны, сливки, сыр, бекон',
   },
 ];
+
+export const dishToBasket: Array<IDish> = [];

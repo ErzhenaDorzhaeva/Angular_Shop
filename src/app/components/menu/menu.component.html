@@ -1,1 +1,17 @@
-<h1>Hello world</h1>
+<div *ngFor="let product of products" class="product-card">
+  <img
+    src="{{ product.image }}"
+    alt="Название товара"
+    class="product-card__image"
+  />
+  <h3 class="product-card__title">{{ product.title }}</h3>
+  <p class="product-card__description">Состав: {{ product.description }}</p>
+  <span class="product-card__price"
+    >{{ product.price | currency : "RUB" }}
+  </span>
+  <div>
+    <button class="product-card__button">Добавить в корзину</button>
+    <button class="product-card__button">Подробнее</button>
+    <button class="product-card__button">Редактировать</button>
+  </div>
+</div>
