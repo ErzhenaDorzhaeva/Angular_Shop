@@ -1,0 +1,5 @@
+<form [formGroup]="$any(form)" (ngSubmit)="submit()">
+  <h2>Create new product:</h2>
+  <input type="text" placeholder="Product name" formControlName="title" />
+  <button type="submit">Create</button>
+</form>
