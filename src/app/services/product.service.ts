@@ -10,6 +10,11 @@ export class ProductService {
   products: IProduct[] = [];
   constructor(private http: HttpClient) {}
 
+  setProducts(params: IProduct[]) {
+    this.products = params;
+    console.log('setProducts', params);
+  }
+
   getAll(): Observable<IProduct[]> {
     return this.http
       .get<IProduct[]>('https://fakestoreapi.com/products', {
@@ -17,12 +22,19 @@ export class ProductService {
           fromObject: { limit: 5 },
         }),
       })
-      .pipe(tap((products) => (this.products = products)));
+      .pipe(tap((newProducts) => this.setProducts(newProducts)));
   }
 
   create(product: IProduct): Observable<IProduct> {
     return this.http
       .post<IProduct>('https://fakestoreapi.com/products', product)
       .pipe(tap((prod) => this.products.push(prod)));
+  }
+
+  editing(product: IProduct): Observable<IProduct> {
+    return this.http.put<IProduct>(
+      `${'https://fakestoreapi.com/products'}/${product.id}`,
+      product
+    );
   }
 }

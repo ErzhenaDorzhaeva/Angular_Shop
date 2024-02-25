@@ -8,7 +8,7 @@
 <h4>{{ product.rating.rate }}</h4>
 <div>
   <app-modal *ngIf="modalService.isVisible$ | async"
-    ><app-editing-product></app-editing-product
+    ><app-editing-product [product]="product"></app-editing-product
   ></app-modal>
   <button class="product-card__button" (click)="modalService.open()">
     Editing

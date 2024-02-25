@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { FilterProductsPipe } from '../../pipes/filter-products.pipe';
 import { ModalService } from '../../services/modal.service';
 import { ProductService } from '../../services/product.service';
@@ -29,7 +28,6 @@ import { ModalComponent } from '../modal/modal.component';
 })
 @Injectable()
 export class MenuComponent implements OnInit {
-  products$: Observable<IProduct[]>;
   emp = '';
   constructor(
     public productsService: ProductService,
@@ -38,7 +36,7 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productsService.getAll().subscribe((products) => {});
+    this.productsService.getAll().subscribe();
   }
 
   goToDetailsPage(product: IProduct): void {

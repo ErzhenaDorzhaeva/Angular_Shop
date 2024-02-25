@@ -1,11 +1,13 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { IProduct } from '../../types';
 @Component({
   selector: 'app-editing-product',
   standalone: true,
@@ -15,9 +17,13 @@ import { ProductService } from '../../services/product.service';
 })
 @Injectable()
 export class EditingProductComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, public route: Router) {}
+  @Input() product: IProduct;
   form = new FormGroup({
     title: new FormControl<string>(''),
+    price: new FormControl<number>(0),
+    description: new FormControl<string>(''),
+    category: new FormControl<string>(''),
   });
 
   get title() {
@@ -26,20 +32,23 @@ export class EditingProductComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submit() {
-    console.log(this.title.value);
-    // this.productService
-    //   .update({
-    //     title: this.form.value.title as string,
-    //     price: 13.5,
-    //     description: 'lorem ipsum set',
-    //     image: 'https://i.pravatar.cc',
-    //     category: 'electronic',
-    //     rating: {
-    //       rate: 42,
-    //       count: 1,
-    //     },
-    //   })
-    //   .subscribe();
+  submit(product: IProduct) {
+    this.productService
+      .editing({
+        id: product.id,
+        title: this.form.value.title as string,
+        price: this.form.value.price as number,
+        description: this.form.value.description as string,
+        image: 'https://i.pravatar.cc',
+        category: this.form.value.category as string,
+        rating: {
+          rate: 0,
+          count: 0,
+        },
+      })
+      .subscribe((params) => {
+        this.route.navigate(['']);
+        //  this.productService.getAll();
+      });
   }
 }

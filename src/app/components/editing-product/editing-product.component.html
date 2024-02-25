@@ -1,5 +1,29 @@
-<form [formGroup]="$any(form)" (ngSubmit)="submit()">
+<form [formGroup]="$any(form)" (ngSubmit)="submit(product)">
   <h2>Editing product:</h2>
-  <input type="text" placeholder="Product name" formControlName="title" />
+  <h3>
+    Product name:
+    <input type="text" placeholder="Product name" formControlName="title" />
+  </h3>
+  <h3>
+    Product price:
+    <input type="number" placeholder="Product price" formControlName="price" />
+  </h3>
+  <h3>
+    Description:
+    <input
+      type="text"
+      placeholder="Product description"
+      formControlName="description"
+    />
+  </h3>
+  <h3>
+    Category:
+    <input
+      type="text"
+      placeholder="Product category"
+      formControlName="category"
+    />
+  </h3>
+
   <button type="submit">Submit</button>
 </form>

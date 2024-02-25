@@ -27,7 +27,6 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    console.log(this.title.value);
     this.productService
       .create({
         title: this.form.value.title as string,
