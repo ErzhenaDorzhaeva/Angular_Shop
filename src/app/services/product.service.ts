@@ -37,4 +37,16 @@ export class ProductService {
       product
     );
   }
+  delete(product: IProduct) {
+    return this.http
+      .delete<any>(`${'https://fakestoreapi.com/products'}/${product.id}`)
+      .subscribe((data) => {
+        this.products.forEach((prod) => {
+          if (prod.id === product.id) {
+            let idX = this.products.indexOf(prod);
+            this.products.splice(idX, 1);
+          }
+        });
+      });
+  }
 }

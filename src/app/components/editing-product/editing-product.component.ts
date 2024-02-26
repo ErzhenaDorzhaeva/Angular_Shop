@@ -47,8 +47,8 @@ export class EditingProductComponent implements OnInit {
         },
       })
       .subscribe((params) => {
+        //console.log(params);
         this.route.navigate(['']);
-        //  this.productService.getAll();
       });
   }
 }

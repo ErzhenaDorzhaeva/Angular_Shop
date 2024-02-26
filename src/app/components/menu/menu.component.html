@@ -27,11 +27,14 @@
           Подробнее
         </button>
         <button class="product-card__button">Добавить в корзину</button>
+        <button class="product-card__button" (click)="deleteProduct(product)">
+          Удалить
+        </button>
       </div>
     </div>
   </div>
+</div>
 
-  <div>
-    <app-create-product></app-create-product>
-  </div>
+<div>
+  <app-create-product></app-create-product>
 </div>

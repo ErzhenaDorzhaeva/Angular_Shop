@@ -42,4 +42,8 @@ export class MenuComponent implements OnInit {
   goToDetailsPage(product: IProduct): void {
     this.router.navigate(['menu/', product.id]);
   }
+
+  deleteProduct(product: IProduct) {
+    this.productsService.delete(product);
+  }
 }
