@@ -10,7 +10,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ProductDetailsComponent } from './components/product_details/product_details.component';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

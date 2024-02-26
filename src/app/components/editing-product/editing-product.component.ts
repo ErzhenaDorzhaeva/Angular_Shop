@@ -32,23 +32,18 @@ export class EditingProductComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submit(product: IProduct) {
-    this.productService
-      .editing({
-        id: product.id,
-        title: this.form.value.title as string,
-        price: this.form.value.price as number,
-        description: this.form.value.description as string,
-        image: 'https://i.pravatar.cc',
-        category: this.form.value.category as string,
-        rating: {
-          rate: 0,
-          count: 0,
-        },
-      })
-      .subscribe((params) => {
-        //console.log(params);
-        this.route.navigate(['']);
-      });
+  submit(product: IProduct): void {
+    this.productService.editing({
+      id: product.id,
+      title: this.form.value.title as string,
+      price: this.form.value.price as number,
+      description: this.form.value.description as string,
+      image: 'https://i.pravatar.cc',
+      category: this.form.value.category as string,
+      rating: {
+        rate: 0,
+        count: 0,
+      },
+    });
   }
 }

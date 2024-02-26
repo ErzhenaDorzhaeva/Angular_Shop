@@ -1,1 +1,7 @@
-<div *ngIf="empty">Ваша корзина пуста</div>
+<div *ngFor="let product of basket">
+  <h2>
+    {{ product.title }} ____________ {{ product.price | currency : "RUB" }}
+  </h2>
+</div>
+<h4>Общая стоимость товаров: {{ sum | currency : "RUB" }}</h4>
+<button class="product-card__button" (click)="toMenu()">Назад</button>

@@ -4,7 +4,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FilterProductsPipe } from '../../pipes/filter-products.pipe';
-import { ModalService } from '../../services/modal.service';
+import { BasketService } from '../../services/basketService';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { CreateProductComponent } from '../create-product/create-product.component';
@@ -31,8 +31,8 @@ export class MenuComponent implements OnInit {
   emp = '';
   constructor(
     public productsService: ProductService,
-    public modalService: ModalService,
-    private router: Router
+    private router: Router,
+    public basketService: BasketService
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +45,9 @@ export class MenuComponent implements OnInit {
 
   deleteProduct(product: IProduct) {
     this.productsService.delete(product);
+  }
+
+  addToBasket(product: IProduct) {
+    this.basketService.addBasket(product);
   }
 }

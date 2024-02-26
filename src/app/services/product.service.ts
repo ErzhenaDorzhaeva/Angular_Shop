@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { IProduct } from '../types';
 
@@ -8,7 +9,7 @@ import { IProduct } from '../types';
 })
 export class ProductService {
   products: IProduct[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public route: Router) {}
 
   setProducts(params: IProduct[]) {
     this.products = params;
@@ -31,12 +32,21 @@ export class ProductService {
       .pipe(tap((prod) => this.products.push(prod)));
   }
 
-  editing(product: IProduct): Observable<IProduct> {
-    return this.http.put<IProduct>(
-      `${'https://fakestoreapi.com/products'}/${product.id}`,
-      product
-    );
+  editing(product: IProduct) {
+    return this.http
+      .put<IProduct>(
+        `${'https://fakestoreapi.com/products'}/${product.id}`,
+        product
+      )
+      .subscribe((data) => {
+        this.products = this.products.map((product) => {
+          if (product.id === data.id) return data;
+          else return product;
+        });
+        this.route.navigate(['']);
+      });
   }
+
   delete(product: IProduct) {
     return this.http
       .delete<any>(`${'https://fakestoreapi.com/products'}/${product.id}`)
