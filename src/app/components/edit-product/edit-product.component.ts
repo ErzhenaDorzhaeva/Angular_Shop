@@ -13,6 +13,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 
@@ -33,8 +34,9 @@ import { IProduct } from '../../types';
 export class EditProductComponent {
   constructor(
     private productService: ProductService,
+    public route: Router,
     public dialogRef: MatDialogRef<EditProductComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: number
+    @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {}
 
   @Input() product: IProduct;
@@ -47,7 +49,7 @@ export class EditProductComponent {
 
   submit(product: IProduct) {
     this.productService.editing({
-      id: this.data,
+      id: this.data.id,
       title: this.form.value.title as string,
       price: this.form.value.price as number,
       description: this.form.value.description as string,
@@ -58,6 +60,8 @@ export class EditProductComponent {
         count: 0,
       },
     });
+    this.dialogRef.close();
+    this.route.navigate(['']);
   }
 
   onNoClick(): void {
