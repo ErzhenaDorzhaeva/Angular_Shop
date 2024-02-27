@@ -7,10 +7,7 @@
 <h4>{{ product.rating.count }}</h4>
 <h4>{{ product.rating.rate }}</h4>
 
-<div>
-  <button mat-raised-button (click)="openDialog()">Редактировать</button>
-</div>
-
-<div>
-  <button class="product-card__button" (click)="goToMenu()">Back</button>
-</div>
+<h4>
+  <button mat-stroked-button (click)="openDialog()">Редактировать</button>
+</h4>
+<h4><button mat-stroked-button (click)="goToMenu()">Back</button></h4>

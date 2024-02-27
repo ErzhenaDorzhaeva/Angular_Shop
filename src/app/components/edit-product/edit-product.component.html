@@ -1,15 +1,33 @@
-<h2 mat-dialog-title>Окно редактирования продукта:</h2>
-<mat-dialog-content>
-  <form [formGroup]="$any(form)" (ngSubmit)="submit(product)">
-    <h2>Введите название продукта:</h2>
-    <input formControlName="title" />
-    <h2>Введите стоимость:</h2>
-    <input formControlName="price" />
-    <h2>Введите описание продукта:</h2>
-    <input formControlName="description" />
-    <h2><button type="submit">Сохранить</button></h2>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Выйти</button>
-</mat-dialog-actions>
+<div class="center">
+  <h2 mat-dialog-title>Окно редактирования продукта:</h2>
+  <mat-dialog-content>
+    <form
+      class="example-form"
+      [formGroup]="$any(form)"
+      (ngSubmit)="submit(product)"
+    >
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Введите название продукта:</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Введите стоимость:</mat-label>
+          <input matInput formControlName="price" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Введите описание продукта:</mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+      </div>
+      <h2><button mat-stroked-button type="submit">Сохранить</button></h2>
+    </form>
+  </mat-dialog-content>
+  <button class="text-center" mat-stroked-button (click)="onNoClick()">
+    Назад
+  </button>
+</div>

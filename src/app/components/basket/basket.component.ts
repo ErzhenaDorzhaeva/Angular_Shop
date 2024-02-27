@@ -1,5 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { BasketService } from '../../services/basket.service';
 import { IProduct } from '../../types';
 @Component({
@@ -7,7 +8,7 @@ import { IProduct } from '../../types';
   templateUrl: './basket.component.html',
   styleUrl: './basket.component.scss',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
 })
 export class BasketComponent implements OnInit {
   public basket: IProduct[] = [];

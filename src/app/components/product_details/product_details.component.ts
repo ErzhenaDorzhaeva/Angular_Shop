@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { EditProductComponent } from '../edit-product/edit-product.component';
-
 @Component({
   selector: 'app-product_details',
   templateUrl: './product_details.component.html',

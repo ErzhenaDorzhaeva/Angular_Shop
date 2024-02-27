@@ -5,6 +5,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -13,6 +14,8 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
@@ -27,6 +30,9 @@ import { IProduct } from '../../types';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.scss',

@@ -1,5 +1,13 @@
 <form [formGroup]="$any(form)" (ngSubmit)="submit()">
-  <h2>Create new product:</h2>
-  <input type="text" placeholder="Product name" formControlName="title" />
-  <button type="submit">Create</button>
+  <h2>Создать новый продукт:</h2>
+  <h3>
+    Название продукта:
+    <input
+      class="margin"
+      type="text"
+      placeholder="Product name"
+      formControlName="title"
+    />
+    <button mat-stroked-button type="submit">Create</button>
+  </h3>
 </form>

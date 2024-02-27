@@ -24,14 +24,19 @@
       <span class="product-card__price"
         >{{ product.price | currency : "RUB" }}
       </span>
+
       <div>
-        <button class="product-card__button" (click)="goToDetailsPage(product)">
+        <button mat-stroked-button (click)="goToDetailsPage(product)">
           Подробнее
         </button>
-        <button class="product-card__button" (click)="addToBasket(product)">
+        <button mat-stroked-button (click)="addToBasket(product)">
           Добавить в корзину
         </button>
-        <button class="product-card__button" (click)="deleteProduct(product)">
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="deleteProduct(product)"
+        >
           Удалить
         </button>
       </div>

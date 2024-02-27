@@ -5,11 +5,12 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, MatButtonModule],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss',
 })

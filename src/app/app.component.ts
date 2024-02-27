@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterOutlet } from '@angular/router';
-import { NzModalComponent } from 'ng-zorro-antd/modal';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,7 +26,7 @@ import { FilterProductsPipe } from './pipes/filter-products.pipe';
     FilterProductsPipe,
     CreateProductComponent,
     ReactiveFormsModule,
-    NzModalComponent,
+    MatToolbarModule,
   ],
 })
 export class AppComponent {

@@ -31,7 +31,6 @@ export class ProductService {
   }
 
   editing(product: IProduct) {
-    console.log(product);
     return this.http
       .put<IProduct>(
         `${'https://fakestoreapi.com/products'}/${product.id}`,
