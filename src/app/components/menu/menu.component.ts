@@ -9,8 +9,6 @@ import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { CreateProductComponent } from '../create-product/create-product.component';
 import { EditingProductComponent } from '../editing-product/editing-product.component';
-import { ModalComponent } from '../modal/modal.component';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -21,7 +19,6 @@ import { ModalComponent } from '../modal/modal.component';
     HttpClientModule,
     FormsModule,
     FilterProductsPipe,
-    ModalComponent,
     CreateProductComponent,
     EditingProductComponent,
   ],

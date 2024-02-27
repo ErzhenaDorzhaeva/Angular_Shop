@@ -8,17 +8,20 @@
 <h4>{{ product.rating.rate }}</h4>
 
 <div>
-  <app-modal *ngIf="modalService.isVisible$ | async" title="Create new Product">
-    <app-editing-product></app-editing-product>
-  </app-modal>
-  <div *ngIf="!(modalService.isVisible$ | async)">
-    <button
-      class="rounded-full bg-red-700 text-white fixed right-5 bottom-5 py-2 px-4"
-      (click)="modalService.open()"
-    >
-      Открыть модальное окно редактирования
-    </button>
-  </div>
+  <button nz-button (click)="showModal()">
+    <span>Show Modal</span>
+  </button>
+
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="The first Modal"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+  >
+    <ng-container *nzModalContent>
+      <h2>My modal</h2>
+    </ng-container>
+  </nz-modal>
 </div>
 
 <div>
