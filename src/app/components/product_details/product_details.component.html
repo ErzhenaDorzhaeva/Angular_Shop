@@ -8,20 +8,7 @@
 <h4>{{ product.rating.rate }}</h4>
 
 <div>
-  <button nz-button (click)="showModal()">
-    <span>Show Modal</span>
-  </button>
-
-  <nz-modal
-    [(nzVisible)]="isVisible"
-    nzTitle="The first Modal"
-    (nzOnCancel)="handleCancel()"
-    (nzOnOk)="handleOk()"
-  >
-    <ng-container *nzModalContent>
-      <h2>My modal</h2>
-    </ng-container>
-  </nz-modal>
+  <button mat-raised-button (click)="openDialog()">Редактировать</button>
 </div>
 
 <div>

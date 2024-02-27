@@ -8,7 +8,7 @@ import { BasketService } from '../../services/basket.service';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { CreateProductComponent } from '../create-product/create-product.component';
-import { EditingProductComponent } from '../editing-product/editing-product.component';
+import { EditProductComponent } from '../edit-product/edit-product.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -20,7 +20,7 @@ import { EditingProductComponent } from '../editing-product/editing-product.comp
     FormsModule,
     FilterProductsPipe,
     CreateProductComponent,
-    EditingProductComponent,
+    EditProductComponent,
   ],
 })
 export class MenuComponent implements OnInit {

@@ -1,21 +1,42 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
+
 @Component({
-  selector: 'app-editing-product',
+  selector: 'app-edit-product',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
-  templateUrl: './editing-product.component.html',
-  styleUrl: './editing-product.component.scss',
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
+  templateUrl: './edit-product.component.html',
+  styleUrl: './edit-product.component.scss',
 })
-export class EditingProductComponent {
-  constructor(private productService: ProductService) {}
+export class EditProductComponent {
+  constructor(
+    private productService: ProductService,
+    public dialogRef: MatDialogRef<EditProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: number
+  ) {}
+
   @Input() product: IProduct;
   form = new FormGroup({
     title: new FormControl<string>(''),
@@ -26,7 +47,7 @@ export class EditingProductComponent {
 
   submit(product: IProduct) {
     this.productService.editing({
-      id: product.id,
+      id: this.data,
       title: this.form.value.title as string,
       price: this.form.value.price as number,
       description: this.form.value.description as string,
@@ -37,5 +58,9 @@ export class EditingProductComponent {
         count: 0,
       },
     });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

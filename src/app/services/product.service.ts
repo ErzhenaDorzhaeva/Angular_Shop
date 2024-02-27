@@ -13,7 +13,6 @@ export class ProductService {
 
   setProducts(params: IProduct[]) {
     this.products = params;
-    console.log('setProducts', params);
   }
 
   getAll(): Observable<IProduct[]> {
