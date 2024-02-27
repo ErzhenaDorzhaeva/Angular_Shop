@@ -1,7 +1,9 @@
 <div *ngFor="let product of basket">
   <h2>
     {{ product.title }} ____________ {{ product.price | currency : "RUB" }}
+    <button (click)="deleteProduct(product)">Удалить из корзины</button>
   </h2>
 </div>
 <h4>Общая стоимость товаров: {{ sum | currency : "RUB" }}</h4>
+
 <button class="product-card__button" (click)="toMenu()">Назад</button>

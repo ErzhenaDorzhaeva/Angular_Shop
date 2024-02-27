@@ -14,4 +14,12 @@ export class BasketService {
   addBasket(product: IProduct) {
     return this.basket.push(product);
   }
+  deleteBasket(product: IProduct) {
+    this.basket.forEach((params) => {
+      if (params.id === product.id) {
+        let idX = this.basket.indexOf(params);
+        this.basket.splice(idX, 1);
+      }
+    });
+  }
 }

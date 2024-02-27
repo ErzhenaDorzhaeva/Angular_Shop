@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FilterProductsPipe } from '../../pipes/filter-products.pipe';
-import { BasketService } from '../../services/basketService';
+import { BasketService } from '../../services/basket.service';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { CreateProductComponent } from '../create-product/create-product.component';
@@ -26,7 +26,6 @@ import { ModalComponent } from '../modal/modal.component';
     EditingProductComponent,
   ],
 })
-@Injectable()
 export class MenuComponent implements OnInit {
   emp = '';
   constructor(

@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { Component, Injectable, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { EditingProductComponent } from '../editing-product/editing-product.component';
 import { ModalComponent } from '../modal/modal.component';
-
 @Component({
   selector: 'app-product_details',
   templateUrl: './product_details.component.html',
@@ -14,13 +13,12 @@ import { ModalComponent } from '../modal/modal.component';
   imports: [CommonModule, ModalComponent, EditingProductComponent],
   standalone: true,
 })
-@Injectable()
 export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     public productsService: ProductService,
-    public modalService: ModalService
+    public modalService: ModalService,
+    public location: Location
   ) {}
   product: IProduct;
   ngOnInit(): void {
@@ -30,6 +28,6 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
   goToMenu(): void {
-    this.router.navigate(['']);
+    this.location.back();
   }
 }

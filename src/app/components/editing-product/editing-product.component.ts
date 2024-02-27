@@ -1,11 +1,10 @@
-import { Component, Injectable, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 @Component({
@@ -15,9 +14,8 @@ import { IProduct } from '../../types';
   templateUrl: './editing-product.component.html',
   styleUrl: './editing-product.component.scss',
 })
-@Injectable()
-export class EditingProductComponent implements OnInit {
-  constructor(private productService: ProductService, public route: Router) {}
+export class EditingProductComponent {
+  constructor(private productService: ProductService) {}
   @Input() product: IProduct;
   form = new FormGroup({
     title: new FormControl<string>(''),
@@ -26,13 +24,7 @@ export class EditingProductComponent implements OnInit {
     category: new FormControl<string>(''),
   });
 
-  get title() {
-    return this.form.controls.title as FormControl;
-  }
-
-  ngOnInit(): void {}
-
-  submit(product: IProduct): void {
+  submit(product: IProduct) {
     this.productService.editing({
       id: product.id,
       title: this.form.value.title as string,

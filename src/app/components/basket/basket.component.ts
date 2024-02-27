@@ -1,7 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { BasketService } from '../../services/basketService';
+import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { BasketService } from '../../services/basket.service';
 import { IProduct } from '../../types';
 @Component({
   selector: 'app-basket',
@@ -10,17 +9,25 @@ import { IProduct } from '../../types';
   standalone: true,
   imports: [CommonModule],
 })
-export class BasketComponent {
+export class BasketComponent implements OnInit {
   public basket: IProduct[] = [];
   public sum: number = 0;
-  constructor(private basketService: BasketService, private route: Router) {
-    this.basket = basketService.getBasket();
+  constructor(
+    private basketService: BasketService,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.basket = this.basketService.getBasket();
     this.basket.forEach((product) => {
       this.sum += product.price;
     });
   }
-
+  deleteProduct(product: IProduct) {
+    this.basketService.deleteBasket(product);
+    this.sum -= product.price;
+  }
   toMenu() {
-    this.route.navigate(['']);
+    this.location.back();
   }
 }

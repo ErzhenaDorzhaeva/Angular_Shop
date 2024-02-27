@@ -1,9 +1,14 @@
 * {
   padding: 10px;
-  margin: 10px;
+  margin: 10 px;
 }
 .product-card__button {
   background-color: #f4a460;
   border-radius: 10px;
   border: 1px;
+}
+.product-card__image {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }

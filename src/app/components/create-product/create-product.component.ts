@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -13,18 +13,11 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss',
 })
-@Injectable()
-export class CreateProductComponent implements OnInit {
+export class CreateProductComponent {
   constructor(private productService: ProductService) {}
   form = new FormGroup({
     title: new FormControl<string>(''),
   });
-
-  get title() {
-    return this.form.controls.title as FormControl;
-  }
-
-  ngOnInit(): void {}
 
   submit() {
     this.productService
