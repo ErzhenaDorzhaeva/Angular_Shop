@@ -10,3 +10,7 @@ export class IProduct {
     count: number;
   };
 }
+export class IUser {
+  email: string;
+  password: string;
+}

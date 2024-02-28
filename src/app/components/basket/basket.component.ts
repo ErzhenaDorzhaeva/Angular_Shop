@@ -28,7 +28,7 @@ export class BasketComponent implements OnInit {
     this.basketService.deleteBasket(product);
     this.sum -= product.price;
   }
-  toMenu() {
+  toBack() {
     this.location.back();
   }
 }

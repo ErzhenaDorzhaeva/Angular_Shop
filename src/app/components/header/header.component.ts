@@ -16,4 +16,8 @@ export class HeaderComponent {
   toBasketPage() {
     this.route.navigate(['basket']);
   }
+
+  toLoginPage() {
+    this.route.navigate(['login']);
+  }
 }
