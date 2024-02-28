@@ -8,7 +8,7 @@ import { IUser } from '../types';
 })
 export class AuthService {
   constructor(private router: Router) {}
-
+  public good: boolean;
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
@@ -27,6 +27,7 @@ export class AuthService {
       userInfo.password === 'admin123'
     ) {
       this.setToken('admintoken');
+      this.good = true;
       return of(true);
     }
     return throwError(() => new Error('Failed Login'));
