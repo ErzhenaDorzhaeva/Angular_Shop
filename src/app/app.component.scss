@@ -1,5 +1,16 @@
-.center {
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
   width: 90%;
   max-width: 1600px;
-  margin: auto;
+  padding-top: 5%;
+}
+.footer_style {
+  height: 4em;
+}
+.header_style {
+  position: fixed;
+  top: 0;
 }

@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -47,8 +48,11 @@ export class EditProductComponent {
 
   @Input() product: IProduct;
   form = new FormGroup({
-    title: new FormControl<string>(''),
-    price: new FormControl<number>(0),
+    title: new FormControl<string>('', [Validators.required]),
+    price: new FormControl<number>(0, [
+      Validators.required,
+      Validators.pattern(/^[+-]?[0-9]+(,[0-9]+)?$/),
+    ]),
     description: new FormControl<string>(''),
     category: new FormControl<string>(''),
   });

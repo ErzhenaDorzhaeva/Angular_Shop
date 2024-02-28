@@ -24,7 +24,9 @@
           <input matInput formControlName="description" />
         </mat-form-field>
       </div>
-      <h2><button mat-stroked-button type="submit">Сохранить</button></h2>
+      <button [disabled]="form.invalid" mat-stroked-button type="submit">
+        Сохранить
+      </button>
     </form>
   </mat-dialog-content>
   <button class="text-center" mat-stroked-button (click)="onNoClick()">

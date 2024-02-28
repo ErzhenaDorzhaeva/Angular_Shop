@@ -8,6 +8,22 @@
 <h4>{{ product.rating.rate }}</h4>
 
 <h4>
-  <button mat-stroked-button (click)="openDialog()">Редактировать</button>
+  <button
+    mat-stroked-button
+    color="warn"
+    class="button_style2"
+    (click)="openDialog()"
+  >
+    Редактировать
+  </button>
 </h4>
-<h4><button mat-stroked-button (click)="goToMenu()">Back</button></h4>
+<h4>
+  <button
+    mat-stroked-button
+    color="primary"
+    class="button_style1"
+    (click)="goToMenu()"
+  >
+    Back
+  </button>
+</h4>

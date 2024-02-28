@@ -1,11 +1,14 @@
 <div>
   <div>
-    <input
-      type="text"
-      class="mb-2 border py-2 px-4 w-full"
-      placeholder="Filter products..."
-      [(ngModel)]="emp"
-    />
+    <h3>
+      Поиск:
+      <input
+        type="text"
+        class="product_filter"
+        placeholder="Filter products..."
+        [(ngModel)]="emp"
+      />
+    </h3>
   </div>
   <div *ngIf="productsService.products">
     <div

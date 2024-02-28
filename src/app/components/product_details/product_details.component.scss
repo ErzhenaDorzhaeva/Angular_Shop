@@ -1,5 +1,19 @@
+* {
+  text-align: center;
+}
 .product-card__image {
   height: 200px;
   width: 200px;
   border-radius: 50%;
+  margin-left: 44%;
+}
+.button_style1 {
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+}
+.button_style2 {
+  position: absolute;
+  bottom: 10%;
+  left: 80%;
 }
