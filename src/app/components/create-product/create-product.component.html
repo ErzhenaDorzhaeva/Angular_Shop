@@ -1,13 +1,16 @@
 <form [formGroup]="$any(form)" (ngSubmit)="submit()">
   <h2>Создать новый продукт здесь:</h2>
-  <h3>
-    Название продукта:
+  <div class="input-group mb-3">
     <input
-      class="product_input"
       type="text"
-      placeholder="Название продукта"
+      class="form-control"
+      placeholder="Название продукта:"
+      aria-label="Название продукта:"
+      aria-describedby="basic-addon2"
       formControlName="title"
     />
-    <button mat-stroked-button type="submit">Create</button>
-  </h3>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="submit">Создать</button>
+    </div>
+  </div>
 </form>

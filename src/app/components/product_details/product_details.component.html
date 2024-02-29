@@ -1,29 +1,35 @@
-<img src="{{ product.image }}" alt="Image" class="product-card__image" />
-<h2>Product name: {{ product.title }}</h2>
-<h4>Description: {{ product.description }}</h4>
-<h4>Price: {{ product.price | currency : "RUB" }}</h4>
-<h4>Category: {{ product.category }}</h4>
-<h4>Rating:</h4>
-<h4>{{ product.rating.count }}</h4>
-<h4>{{ product.rating.rate }}</h4>
-
-<h4>
-  <button
-    mat-stroked-button
-    color="warn"
-    class="button_style2"
-    (click)="openDialog()"
-  >
-    Редактировать
-  </button>
-</h4>
-<h4>
-  <button
-    mat-stroked-button
-    color="primary"
-    class="button_style1"
-    (click)="goToMenu()"
-  >
-    Back
-  </button>
-</h4>
+<div class="card mb-2" style="max-width: 1000px">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <p class="image">
+        <img
+          src="{{ product.image }}"
+          class="img-fluid rounded-start"
+          alt="Image"
+        />
+      </p>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.price | currency : "RUB" }}</p>
+        <p class="card-text">{{ product.description }}/p></p>
+        <p class="card-text">
+          {{ product.category }}
+        </p>
+        <p class="card-text">
+          Rating: count:
+          {{ product.rating.count }}, rate: {{ product.rating.rate }}
+        </p>
+        <div>
+          <button class="btn btn-secondary" (click)="openDialog()">
+            Редактировать
+          </button>
+        </div>
+        <div class="margin-left: 3px">
+          <button class="btn btn-secondary" (click)="goToMenu()">Назад</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

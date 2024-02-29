@@ -4,7 +4,7 @@
 }
 .product-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 250px;
+  max-width: 282px;
   text-align: center;
   font-family: sans-serif;
   display: inline-block;
@@ -33,5 +33,8 @@
   margin-bottom: 16px;
 }
 .product_filter {
-  width: 90%;
+  width: 50%;
+}
+.create_style {
+  margin-bottom: 10%;
 }

@@ -1,11 +1,11 @@
 <div>
   <div>
     <h3>
-      Поиск:
       <input
         type="text"
         class="product_filter"
-        placeholder="Filter products..."
+        class="form-control form-control-lg"
+        placeholder="Поиск продукта..."
         [(ngModel)]="emp"
       />
     </h3>
@@ -29,14 +29,23 @@
       </span>
 
       <div>
-        <button mat-stroked-button (click)="goToDetailsPage(product)">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="goToDetailsPage(product)"
+        >
           Подробнее
         </button>
-        <button mat-stroked-button (click)="addToBasket(product)">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="addToBasket(product)"
+        >
           Добавить в корзину
         </button>
         <button
-          mat-stroked-button
+          type="button"
+          class="btn btn-danger"
           color="warn"
           (click)="deleteProduct(product)"
         >
@@ -47,6 +56,6 @@
   </div>
 </div>
 
-<div>
+<div class="create_style">
   <app-create-product></app-create-product>
 </div>

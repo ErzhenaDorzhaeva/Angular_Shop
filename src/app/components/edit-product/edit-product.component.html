@@ -1,35 +1,59 @@
 <div class="center">
-  <h2 mat-dialog-title>Окно редактирования продукта:</h2>
-  <mat-dialog-content>
-    <form
-      class="example-form"
-      [formGroup]="$any(form)"
-      (ngSubmit)="submit(product)"
-    >
-      <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Введите название продукта:</mat-label>
-          <input matInput formControlName="title" />
-        </mat-form-field>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <h2 class="fs-5">Редактирование продукта</h2>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-outline form-white mb-4">
+          <label class="form-label" for="title">Название продукта</label
+          ><input
+            formControlName="title"
+            type="title"
+            id="title"
+            class="form-control form-control-lg"
+          />
+        </div>
+        <div class="form-outline form-white mb-4">
+          <label class="form-label" for="price">Стоимость продукта</label>
+          <input
+            formControlName="price"
+            type="price"
+            id="price"
+            class="form-control form-control-lg"
+          />
+        </div>
+        <div class="form-outline form-white mb-4">
+          <label class="form-label" for="description">Описание продукта</label
+          ><input
+            formControlName="description"
+            type="description"
+            id="description"
+            class="form-control form-control-lg"
+          />
+        </div>
+        <div class="button_style">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            [disabled]="form.invalid"
+            type="submit"
+          >
+            Сохранить
+          </button>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <div class="button_style">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="onNoClick()"
+          >
+            Закрыть
+          </button>
+        </div>
       </div>
-      <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Введите стоимость:</mat-label>
-          <input matInput formControlName="price" />
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Введите описание продукта:</mat-label>
-          <input matInput formControlName="description" />
-        </mat-form-field>
-      </div>
-      <button [disabled]="form.invalid" mat-stroked-button type="submit">
-        Сохранить
-      </button>
-    </form>
-  </mat-dialog-content>
-  <button class="text-center" mat-stroked-button (click)="onNoClick()">
-    Назад
-  </button>
+    </div>
+  </div>
 </div>

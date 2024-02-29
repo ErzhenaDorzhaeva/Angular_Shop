@@ -3,7 +3,7 @@
   height: auto !important;
   height: 100%;
   margin: 0 auto -4em;
-  width: 90%;
+  width: 100%;
   max-width: 1600px;
   padding-top: 5%;
 }
@@ -13,4 +13,6 @@
 .header_style {
   position: fixed;
   top: 0;
+  background-color: black;
+  height: 10%;
 }

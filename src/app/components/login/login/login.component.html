@@ -42,14 +42,23 @@
                 ></p>
               </div>
               <button
-                mat-stroked-button
+                type="button"
+                class="btn btn-secondary"
                 [disabled]="loginForm.invalid"
                 type="submit"
               >
-                Login
+                Выполнить вход
               </button>
             </form>
-            <button mat-stroked-button (click)="toBack()">Назад</button>
+            <div class="p-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="toBack()"
+              >
+                Назад
+              </button>
+            </div>
           </div>
         </div>
       </div>

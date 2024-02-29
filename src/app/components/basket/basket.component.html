@@ -1,13 +1,5 @@
 <div *ngFor="let product of basket">
-  <h2>
-    {{ product.title }} ____________ {{ product.price | currency : "RUB" }}
-    <button mat-stroked-button (click)="deleteProduct(product)">
-      Удалить из корзины
-    </button>
-  </h2>
+  {{ product.title }} ____________ {{ product.price | currency : "RUB" }}
+  <button mat-stroked-button (click)="deleteProduct(product)">Удалить</button>
 </div>
-<h4>Общая стоимость товаров: {{ sum | currency : "RUB" }}</h4>
-
-<button mat-stroked-button class="button_style" (click)="toBack()">
-  Назад
-</button>
+<b>Общая стоимость товаров: {{ sum | currency : "RUB" }}</b>

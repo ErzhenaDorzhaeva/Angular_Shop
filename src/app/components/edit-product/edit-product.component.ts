@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,7 +6,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -19,7 +18,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
-import { IProduct } from '../../types';
 
 @Component({
   selector: 'app-edit-product',
@@ -31,7 +29,6 @@ import { IProduct } from '../../types';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-    MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
   ],
@@ -46,7 +43,6 @@ export class EditProductComponent {
     @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {}
 
-  @Input() product: IProduct;
   form = new FormGroup({
     title: new FormControl<string>('', [Validators.required]),
     price: new FormControl<number>(0, [
@@ -57,7 +53,7 @@ export class EditProductComponent {
     category: new FormControl<string>(''),
   });
 
-  submit(product: IProduct) {
+  submit() {
     this.productService.editing({
       id: this.data.id,
       title: this.form.value.title as string,
