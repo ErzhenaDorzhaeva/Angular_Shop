@@ -1,0 +1,31 @@
+<h3>Сумма заказа: {{ sum }}</h3>
+
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div class="form-outline form-white mb-4">
+    <label class="form-label" for="telefonNumber">Номер телефона</label>
+    <input
+      formControlName="telefonNumber"
+      id="telefonNumber"
+      class="form-control form-control-lg"
+    />
+  </div>
+
+  <div class="form-outline form-white mb-4">
+    <label class="form-label" for="adress">Адрес доставки</label>
+    <input
+      formControlName="adress"
+      id="adress"
+      class="form-control form-control-lg"
+    />
+  </div>
+  <div>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [disabled]="myForm.invalid"
+      type="submit"
+    >
+      Заказать
+    </button>
+  </div>
+</form>

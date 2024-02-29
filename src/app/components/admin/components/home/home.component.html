@@ -1,1 +1,32 @@
-<p>home works!</p>
+<div class="orders_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Номер</th>
+        <th scope="col">Телефон</th>
+        <th scope="col">Адрес</th>
+        <th scope="col">Сумма заказа</th>
+        <th scope="col">Заказ</th>
+        <th scope="col">Сделано/Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ord of basketService.order">
+        <th>1</th>
+        <td>{{ ord.telefonNumber }}</td>
+        <td>{{ ord.adress }}</td>
+        <td>{{ ord.sum }}</td>
+        <td *ngFor="let product of ord.basketsProduct">{{ product.title }},</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="deleteOrder(ord)"
+          >
+            Закрыть заказ
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

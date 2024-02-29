@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { IProduct } from '../types';
+import { IData, IProduct } from '../types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BasketService {
   basket: IProduct[] = [];
+  order: IData[] = [];
+  public openBasket: boolean = false;
 
   getBasket() {
     return this.basket;
@@ -22,5 +24,13 @@ export class BasketService {
         this.basket.splice(idX, 1);
       }
     });
+  }
+
+  checkout(data: IData) {
+    return this.order.push(data);
+  }
+
+  deleteOrder(data: IData) {
+    this.order.splice(data.id, 1);
   }
 }

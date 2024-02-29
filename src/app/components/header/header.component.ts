@@ -7,17 +7,19 @@ import {
   NgbOffcanvas,
   OffcanvasDismissReasons,
 } from '@ng-bootstrap/ng-bootstrap';
+import { BasketService } from '../../services/basket.service';
 import { BasketComponent } from '../basket/basket.component';
+import { DeliveryComponent } from '../delivery/delivery.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [CommonModule, MatIconModule, BasketComponent],
+  imports: [CommonModule, MatIconModule, BasketComponent, DeliveryComponent],
   standalone: true,
 })
 export class HeaderComponent {
-  constructor(private route: Router) {}
+  constructor(private route: Router, public basketService: BasketService) {}
 
   toBasketPage() {
     this.route.navigate(['basket']);
@@ -26,6 +28,7 @@ export class HeaderComponent {
   toLoginPage() {
     this.route.navigate(['login']);
   }
+
   private offcanvasService = inject(NgbOffcanvas);
   closeResult = '';
 
@@ -51,5 +54,11 @@ export class HeaderComponent {
       default:
         return `with: ${reason}`;
     }
+  }
+  goToDelivery() {
+    this.basketService.openBasket = true;
+  }
+  back() {
+    this.basketService.openBasket = false;
   }
 }

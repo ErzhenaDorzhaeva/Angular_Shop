@@ -14,3 +14,11 @@ export class IUser {
   email: string;
   password: string;
 }
+
+export class IData {
+  id: number;
+  telefonNumber: string;
+  adress: string;
+  sum: number;
+  basketsProduct: Array<IProduct>;
+}

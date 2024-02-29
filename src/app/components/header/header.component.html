@@ -1,6 +1,8 @@
 <ng-template #content let-offcanvas>
   <div class="offcanvas-header">
-    <h4 class="offcanvas-title" id="offcanvas-basic-title">Корзина</h4>
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">
+      {{ basketService.openBasket ? "Оформление доставки" : "Корзина" }}
+    </h4>
     <button
       type="button"
       class="btn-close"
@@ -8,9 +10,29 @@
       (click)="offcanvas.dismiss('Cross click')"
     ></button>
   </div>
+
   <div class="offcanvas-body">
-    <app-basket></app-basket></div
-></ng-template>
+    <div *ngIf="!basketService.openBasket">
+      <app-basket></app-basket>
+      <div class="back_button">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="goToDelivery()"
+        >
+          Перейти к оформлению заказа
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="basketService.openBasket">
+      <app-delivery></app-delivery>
+      <div class="back_button">
+        <button class="btn btn-secondary" (click)="back()">Назад</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
 
 <span class="basket_button">
   <button type="button" class="btn btn-danger" (click)="open(content)">

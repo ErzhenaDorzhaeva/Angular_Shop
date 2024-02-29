@@ -3,3 +3,17 @@
   <button mat-stroked-button (click)="deleteProduct(product)">Удалить</button>
 </div>
 <b>Общая стоимость товаров: {{ sum | currency : "RUB" }}</b>
+
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">Доставка</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-delivery></app-delivery></div
+></ng-template>
