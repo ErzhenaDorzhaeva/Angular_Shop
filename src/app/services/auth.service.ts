@@ -9,6 +9,7 @@ import { IUser } from '../types';
 export class AuthService {
   constructor(private router: Router) {}
   public good: boolean;
+  public canEdit: boolean = false;
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
@@ -28,12 +29,14 @@ export class AuthService {
     ) {
       this.setToken('admintoken');
       this.good = true;
+      this.canEdit = true;
       return of(true);
     }
     return throwError(() => new Error('Failed Login'));
   }
 
   logout() {
-    this.router.navigate(['login']);
+    this.canEdit = false;
+    this.router.navigate(['']);
   }
 }

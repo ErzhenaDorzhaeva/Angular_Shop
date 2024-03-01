@@ -1,7 +1,7 @@
 <ng-template #content let-offcanvas>
   <div class="offcanvas-header">
     <h4 class="offcanvas-title" id="offcanvas-basic-title">
-      {{ basketService.openBasket ? "Оформление доставки" : "Корзина" }}
+      {{ basketService.openBasket ? "Корзина" : "Оформление доставки" }}
     </h4>
     <button
       type="button"
@@ -52,7 +52,20 @@
 ></span>
 
 <span class="button_inLogin"
-  ><button type="button" class="btn btn-secondary" (click)="toLoginPage()">
+  ><button
+    *ngIf="!authService.canEdit"
+    type="button"
+    class="btn btn-secondary"
+    (click)="toLoginPage()"
+  >
     Авторизация
+  </button>
+  <button
+    *ngIf="authService.canEdit"
+    type="button"
+    class="btn btn-secondary"
+    (click)="goToUserPage()"
+  >
+    Выйти из админ.системы
   </button></span
 >

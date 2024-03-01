@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import {
   FormControl,
@@ -31,6 +32,7 @@ import { ProductService } from '../../services/product.service';
     MatDialogClose,
     MatInputModule,
     MatFormFieldModule,
+    NgIf,
   ],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.scss',

@@ -5,13 +5,13 @@ import { BasketService } from '../../../../services/basket.service';
 import { IData } from '../../../../types';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-orders',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './orders.component.html',
+  styleUrl: './orders.component.scss',
 })
-export class HomeComponent {
+export class OrdersComponent {
   constructor(public basketService: BasketService, private route: Router) {}
   public order: IData[];
 

@@ -1,10 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { FilterProductsPipe } from '../../pipes/filter-products.pipe';
+import { AuthService } from '../../services/auth.service';
 import { BasketService } from '../../services/basket.service';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
@@ -23,6 +24,7 @@ import { EditProductComponent } from '../edit-product/edit-product.component';
     CreateProductComponent,
     EditProductComponent,
     MatInputModule,
+    NgIf,
   ],
 })
 export class MenuComponent implements OnInit {
@@ -30,7 +32,8 @@ export class MenuComponent implements OnInit {
   constructor(
     public productsService: ProductService,
     private router: Router,
-    public basketService: BasketService
+    public basketService: BasketService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {

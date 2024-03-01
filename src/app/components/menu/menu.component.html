@@ -47,6 +47,7 @@
           class="btn btn-danger"
           color="warn"
           (click)="deleteProduct(product)"
+          *ngIf="authService.canEdit"
         >
           Удалить
         </button>

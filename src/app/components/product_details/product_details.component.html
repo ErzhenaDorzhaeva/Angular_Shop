@@ -21,7 +21,7 @@
           Rating: count:
           {{ product.rating.count }}, rate: {{ product.rating.rate }}
         </p>
-        <div>
+        <div *ngIf="authService.canEdit">
           <button class="btn btn-secondary" (click)="openDialog()">
             Редактировать
           </button>

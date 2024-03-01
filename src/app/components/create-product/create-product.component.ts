@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   FormControl,
@@ -5,16 +6,20 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, NgIf],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss',
 })
 export class CreateProductComponent {
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    public authService: AuthService
+  ) {}
 
   form = new FormGroup({
     title: new FormControl<string>(''),

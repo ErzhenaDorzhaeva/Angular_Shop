@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
 import { EditProductComponent } from '../edit-product/edit-product.component';
@@ -24,7 +25,8 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     public productsService: ProductService,
     public location: Location,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public authService: AuthService
   ) {}
   product: IProduct;
 
