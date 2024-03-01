@@ -51,4 +51,8 @@ export class MenuComponent implements OnInit {
   addToBasket(product: IProduct) {
     this.basketService.addBasket(product);
   }
+
+  goToOrdersMenu() {
+    this.router.navigate(['admin']);
+  }
 }

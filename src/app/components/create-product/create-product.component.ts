@@ -21,6 +21,8 @@ export class CreateProductComponent {
     public authService: AuthService
   ) {}
 
+  public value: string = ' ';
+
   form = new FormGroup({
     title: new FormControl<string>(''),
   });
@@ -38,6 +40,8 @@ export class CreateProductComponent {
           count: 1,
         },
       })
-      .subscribe();
+      .subscribe(() => {
+        this.value = '';
+      });
   }
 }

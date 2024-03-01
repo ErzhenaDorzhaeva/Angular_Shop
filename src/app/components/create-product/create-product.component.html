@@ -1,13 +1,15 @@
-<form [formGroup]="$any(form)" (ngSubmit)="submit()">
-  <div *ngIf="authService.canEdit">
+<form
+  *ngIf="authService.canEdit"
+  [formGroup]="$any(form)"
+  (ngSubmit)="submit()"
+>
+  <div>
     <h2>Создать новый продукт здесь:</h2>
     <div class="input-group mb-3">
       <input
-        type="text"
         class="form-control"
-        placeholder="Название продукта:"
-        aria-label="Название продукта:"
-        aria-describedby="basic-addon2"
+        [value]="value"
+        placeholder="Название продукта..."
         formControlName="title"
       />
       <div class="input-group-append">
