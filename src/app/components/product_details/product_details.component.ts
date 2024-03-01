@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../types';
@@ -16,7 +15,6 @@ import { EditProductComponent } from '../edit-product/edit-product.component';
     CommonModule,
     EditProductComponent,
     MatFormFieldModule,
-    MatInputModule,
     FormsModule,
   ],
   standalone: true,

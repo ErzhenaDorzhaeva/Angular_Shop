@@ -14,9 +14,11 @@ import { IData } from '../../../../types';
 export class HomeComponent {
   constructor(public basketService: BasketService, private route: Router) {}
   public order: IData[];
-  ngOnInit() {}
 
   deleteOrder(order: IData) {
     this.basketService.deleteOrder(order);
+  }
+  goToMenu() {
+    this.route.navigate(['']);
   }
 }

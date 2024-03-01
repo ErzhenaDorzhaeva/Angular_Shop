@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, TemplateRef } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-
 import {
   NgbOffcanvas,
   OffcanvasDismissReasons,
@@ -15,7 +13,7 @@ import { DeliveryComponent } from '../delivery/delivery.component';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [CommonModule, MatIconModule, BasketComponent, DeliveryComponent],
+  imports: [CommonModule, BasketComponent, DeliveryComponent],
   standalone: true,
 })
 export class HeaderComponent {
@@ -56,10 +54,12 @@ export class HeaderComponent {
         return `with: ${reason}`;
     }
   }
+
   goToDelivery() {
     this.basketService.openBasket = false;
     this.basketService.openDelivery = true;
   }
+
   back() {
     this.basketService.openDelivery = false;
     this.basketService.openBasket = true;

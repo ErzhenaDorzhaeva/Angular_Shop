@@ -5,17 +5,17 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, MatButtonModule],
+  imports: [ReactiveFormsModule, FormsModule],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss',
 })
 export class CreateProductComponent {
   constructor(private productService: ProductService) {}
+
   form = new FormGroup({
     title: new FormControl<string>(''),
   });

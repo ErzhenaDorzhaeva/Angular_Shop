@@ -22,6 +22,7 @@ export class BasketComponent implements OnInit {
       this.sum += product.price;
     });
   }
+
   deleteProduct(product: IProduct) {
     this.basketService.deleteBasket(product);
     this.sum -= product.price;
