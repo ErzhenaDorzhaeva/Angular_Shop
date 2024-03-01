@@ -31,6 +31,7 @@ export class ProductService {
   }
 
   editing(product: IProduct) {
+    //простая функция без подписок, нет соединения с бд
     return this.http
       .put<IProduct>(
         `${'https://fakestoreapi.com/products'}/${product.id}`,

@@ -12,11 +12,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let ord of basketService.order">
-        <th>1</th>
+        <th>{{ ord.id + 1 }}</th>
         <td>{{ ord.telefonNumber }}</td>
         <td>{{ ord.adress }}</td>
         <td>{{ ord.sum }}</td>
-        <td *ngFor="let product of ord.basketsProduct">{{ product.title }},</td>
+        <td>
+          <div *ngFor="let product of ord.basketsProduct">
+            {{ product.title }}
+          </div>
+        </td>
         <td>
           <button
             type="button"

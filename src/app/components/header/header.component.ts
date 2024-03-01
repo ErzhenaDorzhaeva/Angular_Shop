@@ -43,6 +43,7 @@ export class HeaderComponent {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+    this.basketService.openBasket = true;
   }
 
   private getDismissReason(reason: any): string {
@@ -56,9 +57,11 @@ export class HeaderComponent {
     }
   }
   goToDelivery() {
-    this.basketService.openBasket = true;
+    this.basketService.openBasket = false;
+    this.basketService.openDelivery = true;
   }
   back() {
-    this.basketService.openBasket = false;
+    this.basketService.openDelivery = false;
+    this.basketService.openBasket = true;
   }
 }

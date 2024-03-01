@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -11,7 +12,7 @@ import { BasketService } from '../../services/basket.service';
 @Component({
   selector: 'app-delivery',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './delivery.component.html',
   styleUrl: './delivery.component.scss',
 })
@@ -31,8 +32,8 @@ export class DeliveryComponent implements OnInit {
   });
 
   submit() {
-    this.basketService.checkout({
-      id: this.basketService.basket.length - 1,
+    this.basketService.addOrder({
+      id: this.basketService.order.length,
       telefonNumber: this.myForm.value.telefonNumber as string,
       adress: this.myForm.value.adress as string,
       sum: this.sum,

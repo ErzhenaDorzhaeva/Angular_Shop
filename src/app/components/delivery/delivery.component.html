@@ -1,4 +1,4 @@
-<h3>Сумма заказа: {{ sum }}</h3>
+<h3>Сумма заказа: {{ sum | currency : "RUB" }}</h3>
 
 <form [formGroup]="myForm" (ngSubmit)="submit()">
   <div class="form-outline form-white mb-4">

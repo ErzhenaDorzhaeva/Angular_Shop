@@ -12,7 +12,7 @@
   </div>
 
   <div class="offcanvas-body">
-    <div *ngIf="!basketService.openBasket">
+    <div *ngIf="basketService.openBasket">
       <app-basket></app-basket>
       <div class="back_button">
         <button
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div *ngIf="basketService.openBasket">
+    <div *ngIf="basketService.openDelivery">
       <app-delivery></app-delivery>
       <div class="back_button">
         <button class="btn btn-secondary" (click)="back()">Назад</button>
